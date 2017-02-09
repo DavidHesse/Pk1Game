@@ -1,26 +1,26 @@
 package game;
 
+import java.awt.Graphics;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /*
- * Homescreen with buttons: "Play", "Exit", "Steueroperationen", "Spiel erklärt", "Highscore"
+ * Homescreen with jbuttons: "Play", "Exit", "Steueroperationen" (or controls), "Spiel erklärt" (or Gameplay explained), "Highscore"
  * 
  * 
  */
 
 
 
-public class HomeScreen extends JFrame
-{
-	JPanel HomePanel = new JPanel();
-	JButton Play = new JButton("Play");
-	JButton EXIT = new JButton("Exit");
-	JButton Steueroperationen = new JButton("Steueroperationen");
-	JButton SpielErklaerung = new JButton("Spiel erklärt");
-	JButton Highscore = new JButton("Highscore");
+public class HomeScreen extends JPanel
+{	
 	
+	public void render(Graphics g)
+	{
+		g.drawString("Dodgeyballer", Dodgeyballer.WIDTH / 2, 50);
+	}
 	
 	
 }

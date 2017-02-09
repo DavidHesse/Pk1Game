@@ -11,29 +11,22 @@ import javax.swing.JFrame;
 public class Dodgeyballer extends JFrame
 {
 	
-	private void Dodgeyballer()
+	public Dodgeyballer()
 	{
 		add(new Board());
-		add(new HomeScreen());
-		setTitle("DodgeyBaller");
-		setSize(500,500);
+		
+		JFrame frame = new JFrame("Dodgeyballer");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500,500); 
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
 	}
 	
 	public static void main(String args[])
 	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				Dodgeyballer ex = new Dodgeyballer();
-				ex.setVisible(true);
-			}
-		});
-
+		new Dodgeyballer();
 	}
 }

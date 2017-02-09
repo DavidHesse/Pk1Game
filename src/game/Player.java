@@ -9,32 +9,25 @@ import javax.swing.JPanel;
 
 public class Player extends JPanel 
 {
-	private int x = 300, y = 300;
+	private int x, y;
 	public boolean ingame = true;
 	public int lives = 3;
 	
-	public Player()
+	public Player(int x, int y)
 	{
+		this.x = x;
+		this.y = y;
+		
 		JPanel player = new JPanel();	//Player Panel
 		setSize(5,5);
 		setVisible(true);
 		setBackground(Color.BLACK);
 		setLocation(x,y);
 		
-	}	
-	
-	public void drawPlayer(Graphics g)
-	{
-		if (ingame = true)
-		{
-			super.paintComponent(g);
-			g.setColor(Color.black);
-			g.fillRect(x, y, 5, 5);
-			g.drawRect(x, y, 5, 5);
-		}
 		
-	}
-	
+	}	
+
+
 	public void checkCollision()
 	{
 		if(x == Dodgeyballer.WIDTH )
@@ -49,12 +42,15 @@ public class Player extends JPanel
 		
 	}
 	
+	
+	
 	public void death()
 	{
 		lives--;
 		if (lives == 0)
 		{
 			ingame = false;
+			
 		}
 	}
 
@@ -66,36 +62,69 @@ public class Player extends JPanel
 		{
 			if (e.getKeyCode() == KeyEvent.VK_UP) 
 			{
-				y = y + 1;
+				setY(getY() + 5);
 				repaint();
+				System.out.println("y");
+
 			}
 			
 			if (e.getKeyCode() == KeyEvent.VK_DOWN)
 			{
-				y = y - 1;
+				setY(getY() - 5);
 				repaint();
+				System.out.println("y");
 			}
 			
 			if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			{
-				x = x - 1;
+				setX(getX() - 5);
 				repaint();
+				System.out.println("x");
 			}
 				
 			if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			{
-				x = x + 1;
+				setX(getX() + 5);
 				repaint();
+				System.out.println("x");
 			}
-
 		}
-
-		public void keyReleased(KeyEvent e) 
-		{
-			// TODO Auto-generated method stub
-
-		}
-
+		
+		public void keyReleased(KeyEvent e) {}
 	}
+	
+	public void drawPlayer(Graphics g)
+	{
 
+		if (ingame = true)
+		{
+			super.paintComponent(g);
+			g.setColor(Color.black);
+			g.fillRect(x, y, 5, 5);
+			g.drawRect(x, y, 5, 5);
+		}		
+	}
+	
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
+	}
+	
+	public void setX(int x)
+	{
+		this.x = x;
+	}
+	
+	public void setY(int y)
+	{
+		this.y = y;
+	}
+	
+	
+	
 }

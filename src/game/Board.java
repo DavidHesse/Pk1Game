@@ -8,27 +8,28 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel
 {
+	public boolean inGame = true;
+	public int lives = 3;
+	private HomeScreen menu;
+	public enum STATE{menu, game};
+	public STATE state = STATE.menu;
+	private int x, y;
 	
 	public Board() 
 	{
-		setSize(500,500);
-		setLocation(null);
-		setVisible(true);
-		setBackground(Color.GRAY);
 		
-		add(new Player());
+
+	//	menu = new HomeScreen();
+		
+		
+		add(new Player(x, y));
+		
+	}
+
+
 	
-		
-		
-	}
-	public void paintComponent(Graphics g)
-	{
-		super.paintComponent(g);
-		g.drawRect(0,0,500,500);
-		g.setColor(Color.GRAY);
-		g.fillRect(0,0,500,500);
-		
-	}
+
+	
 	
 	
 }
